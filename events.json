@@ -1,0 +1,17 @@
+[
+  {
+    "title": "AI Hackathon",
+    "type": "Hackathon",
+    "apply_link": "https://example.com"
+  },
+  {
+    "title": "Data Science Internship",
+    "type": "Internship",
+    "apply_link": "https://intern.com"
+  },
+  {
+    "title": "Scholarship for Women in Tech",
+    "type": "Scholarship",
+    "apply_link": "https://scholar.com"
+  }
+]
