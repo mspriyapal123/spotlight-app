@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Event 1",
+    "type": "Internship",
+    "deadline": "2025-07-17",
+    "link": "https://example.com/event1"
+  },
+  {
+    "title": "Event 2",
+    "type": "Hackathon",
+    "deadline": "2025-07-18",
+    "link": "https://example.com/event2"
+  },
+  {
+    "title": "Event 3",
+    "type": "Internship",
+    "deadline": "2025-07-19",
+    "link": "https://example.com/event3"
+  },
+  {
+    "title": "Event 4",
+    "type": "Hackathon",
+    "deadline": "2025-07-20",
+    "link": "https://example.com/event4"
+  },
+  {
+    "title": "Event 5",
+    "type": "Internship",
+    "deadline": "2025-07-21",
+    "link": "https://example.com/event5"
+  },
+  {
+    "title": "Event 6",
+    "type": "Hackathon",
+    "deadline": "2025-07-22",
+    "link": "https://example.com/event6"
+  },
+  {
+    "title": "Event 7",
+    "type": "Internship",
+    "deadline": "2025-07-23",
+    "link": "https://example.com/event7"
+  },
+  {
+    "title": "Event 8",
+    "type": "Hackathon",
+    "deadline": "2025-07-24",
+    "link": "https://example.com/event8"
+  },
+  {
+    "title": "Event 9",
+    "type": "Internship",
+    "deadline": "2025-07-25",
+    "link": "https://example.com/event9"
+  },
+  {
+    "title": "Event 10",
+    "type": "Hackathon",
+    "deadline": "2025-07-26",
+    "link": "https://example.com/event10"
+  }
+]
