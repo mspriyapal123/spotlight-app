@@ -47,3 +47,38 @@ for event in filtered:
     st.markdown(f"**Deadline:** {event.get('deadline', 'N/A')}")
     st.markdown(f"[Apply Now]({event['link']})")
     st.markdown("---")
+
+
+# ----------------------------
+# 📄 Resume Match Analyzer
+# ----------------------------
+st.header("📄 Resume Match Analyzer")
+
+# Input resume
+resume_text = st.text_area("✍️ Paste your resume text here")
+
+# Input job description
+jd_text = st.text_area("📋 Paste the job description here")
+
+# Compare button
+if st.button("🔍 Analyze Match"):
+    if resume_text and jd_text:
+        # Convert both texts to lowercase
+        resume_words = set(resume_text.lower().split())
+        jd_words = set(jd_text.lower().split())
+
+        # Matching keywords
+        common = resume_words.intersection(jd_words)
+        missing = jd_words - resume_words
+
+        match_percent = round(len(common) / len(jd_words) * 100, 2)
+
+        st.success(f"✅ Match Score: {match_percent}%")
+        st.markdown("### ✅ Common Keywords Found:")
+        st.write(", ".join(common))
+
+        st.markdown("### ❌ Missing Important Keywords:")
+        st.write(", ".join(missing))
+    else:
+        st.warning("Please paste both resume and job description text.")
+
