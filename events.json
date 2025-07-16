@@ -1,62 +1,62 @@
 [
   {
-    "title": "Event 1",
-    "type": "Internship",
-    "deadline": "2025-07-17",
-    "link": "https://example.com/event1"
-  },
-  {
-    "title": "Event 2",
+    "title": "AI Hackathon 2025",
     "type": "Hackathon",
-    "deadline": "2025-07-18",
-    "link": "https://example.com/event2"
+    "deadline": "2025/07/25",
+    "link": "https://aihackathon.com"
   },
   {
-    "title": "Event 3",
+    "title": "Data Science Internship",
     "type": "Internship",
-    "deadline": "2025-07-19",
-    "link": "https://example.com/event3"
+    "deadline": "2025/07/20",
+    "link": "https://datasciencejobs.com"
   },
   {
-    "title": "Event 4",
-    "type": "Hackathon",
-    "deadline": "2025-07-20",
-    "link": "https://example.com/event4"
+    "title": "ML Bootcamp",
+    "type": "Workshop",
+    "deadline": "2025/07/22",
+    "link": "https://mlbootcamp.io"
   },
   {
-    "title": "Event 5",
+    "title": "Google Summer of Code",
     "type": "Internship",
-    "deadline": "2025-07-21",
-    "link": "https://example.com/event5"
+    "deadline": "2025/07/30",
+    "link": "https://summerofcode.withgoogle.com"
   },
   {
-    "title": "Event 6",
-    "type": "Hackathon",
-    "deadline": "2025-07-22",
-    "link": "https://example.com/event6"
+    "title": "Deep Learning Conference",
+    "type": "Conference",
+    "deadline": "2025/08/01",
+    "link": "https://dlconf.org"
   },
   {
-    "title": "Event 7",
+    "title": "Women in Tech Seminar",
+    "type": "Seminar",
+    "deadline": "2025/07/28",
+    "link": "https://womenintech.org/seminar"
+  },
+  {
+    "title": "Coding Contest 2025",
+    "type": "Contest",
+    "deadline": "2025/07/21",
+    "link": "https://codecontest.com"
+  },
+  {
+    "title": "AI Research Internship",
     "type": "Internship",
-    "deadline": "2025-07-23",
-    "link": "https://example.com/event7"
+    "deadline": "2025/07/26",
+    "link": "https://airesearch.internship.org"
   },
   {
-    "title": "Event 8",
-    "type": "Hackathon",
-    "deadline": "2025-07-24",
-    "link": "https://example.com/event8"
+    "title": "Python for Beginners Workshop",
+    "type": "Workshop",
+    "deadline": "2025/07/19",
+    "link": "https://pythonworkshop.com"
   },
   {
-    "title": "Event 9",
-    "type": "Internship",
-    "deadline": "2025-07-25",
-    "link": "https://example.com/event9"
-  },
-  {
-    "title": "Event 10",
-    "type": "Hackathon",
-    "deadline": "2025-07-26",
-    "link": "https://example.com/event10"
+    "title": "Startup Conference 2025",
+    "type": "Conference",
+    "deadline": "2025/08/05",
+    "link": "https://startupconf.com"
   }
 ]
