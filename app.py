@@ -45,6 +45,6 @@ filtered = [e for e in events if search.lower() in e['title'].lower()]
 for event in filtered:
     st.markdown(f"### {event['title']}")
     st.markdown(f"📁 **Type:** {event['type']}")
-    st.markdown(f"⏳ **Deadline:** {event['deadline']}")
+   **Deadline:** {event.get("deadline", "N/A")}
     st.markdown(f"🔗 [Apply Here]({event['link']})")
     st.markdown("---")
