@@ -48,10 +48,8 @@ for event in filtered:
     st.markdown(f"[Apply Now]({event['link']})")
     st.markdown("---")
 
-
-# ----------------------------
 # 📄 Resume Match Analyzer
-# ----------------------------
+
 st.header("📄 Resume Match Analyzer")
 
 # Input resume
