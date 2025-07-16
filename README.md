@@ -1,2 +1,2 @@
 # spotlight-app
-A event aggregator app for clg student
+A event aggregator app for college student.
