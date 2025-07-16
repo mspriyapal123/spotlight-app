@@ -41,10 +41,9 @@ st.header("📚 All Student Events")
 search = st.text_input("🔍 Search events by title:")
 
 filtered = [e for e in events if search.lower() in e['title'].lower()]
-
 for event in filtered:
     st.markdown(f"### {event['title']}")
-    st.markdown(f"📁 **Type:** {event['type']}")
-   **Deadline:** {event.get("deadline", "N/A")}
-    st.markdown(f"🔗 [Apply Here]({event['link']})")
+    st.markdown(f"**Type:** {event['type']}")
+    st.markdown(f"**Deadline:** {event.get('deadline', 'N/A')}")
+    st.markdown(f"[Apply Now]({event['link']})")
     st.markdown("---")
