@@ -105,3 +105,40 @@ if st.button("🔍 Analyze Match"):
         if missing:
             st.markdown("### 💡 Suggestions")
             st.info("Try including these: " + ", ".join(list(missing)[:5]))
+
+# ----------------------------
+# 📄 Resume Match Analyzer
+# ----------------------------
+st.header("📄 Resume Match Analyzer")
+
+uploaded_resume = st.file_uploader("📤 Upload your Resume (PDF)", type=["pdf"])
+jd_text = st.text_area("📋 Paste the Job Description here")
+
+def extract_text_from_pdf(pdf_file):
+    reader = PyPDF2.PdfReader(pdf_file)
+    text = ""
+    for page in reader.pages:
+        text += page.extract_text()
+    return text
+
+if st.button("🔍 Analyze Match"):
+    if uploaded_resume and jd_text:
+        resume_text = extract_text_from_pdf(uploaded_resume)
+
+        # Matching Logic
+        resume_words = set(resume_text.lower().split())
+        jd_words = set(jd_text.lower().split())
+
+        common = resume_words.intersection(jd_words)
+        missing = jd_words - resume_words
+        match_percent = round(len(common) / len(jd_words) * 100, 2)
+
+        st.success(f"✅ Match Score: {match_percent}%")
+        st.markdown("### ✅ Common Keywords Found:")
+        st.write(", ".join(common))
+
+        st.markdown("### ❌ Missing Important Keywords:")
+        st.write(", ".join(missing))
+    else:
+        st.warning("Please upload a resume and paste a job description.")
+
