@@ -80,3 +80,50 @@ if st.button("🔍 Analyze Match"):
     else:
         st.warning("Please paste both resume and job description text.")
 
+
+import PyPDF2
+
+st.markdown("---")
+st.header("📄 Resume Match Analyzer")
+
+# Step 1: Upload resume PDF
+st.subheader("📤 Upload Your Resume (PDF)")
+uploaded_file = st.file_uploader("Choose your resume file", type="pdf")
+
+resume_text = ""  # Empty string to hold resume text
+
+if uploaded_file is not None:
+    reader = PyPDF2.PdfReader(uploaded_file)
+    for page in reader.pages:
+        resume_text += page.extract_text()
+    st.text_area("📄 Extracted Resume Text", resume_text, height=200)
+
+# Step 2: Paste job description
+jd_text = st.text_area("📋 Paste the job description here")
+
+# Step 3: Match Resume and JD
+if st.button("🔍 Analyze Match"):
+    if resume_text and jd_text:
+        resume_words = set(resume_text.lower().split())
+        jd_words = set(jd_text.lower().split())
+
+        common = resume_words.intersection(jd_words)
+        missing = jd_words - resume_words
+
+        match_percent = round(len(common) / len(jd_words) * 100, 2)
+
+        st.success(f"✅ Match Score: {match_percent}%")
+        st.markdown("### ✅ Common Keywords Found:")
+        st.write(", ".join(common))
+
+        st.markdown("### ❌ Missing Important Keywords:")
+        st.write(", ".join(missing))
+
+        if missing:
+            st.markdown("### 💡 Suggestions to Improve Your Resume:")
+            for keyword in list(missing)[:5]:
+                st.write(f"- Add the keyword: **{keyword}**")
+    else:
+        st.warning("Please upload a resume and paste job description.")
+
+
