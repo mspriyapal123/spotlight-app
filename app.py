@@ -55,8 +55,9 @@ st.markdown("---")
 st.markdown("## 📝 Resume Match Analyzer")
 
 # PDF Upload
-uploaded_file = st.file_uploader("📤 Upload your resume (PDF format)", type=["pdf"])
+uploaded_file = st.file_uploader("📄 Upload your resume (PDF format)", type=["pdf"])
 resume_text = ""
+
 if uploaded_file is not None:
     try:
         pdf_reader = PyPDF2.PdfReader(uploaded_file)
@@ -65,6 +66,7 @@ if uploaded_file is not None:
         st.success("✅ Resume text extracted successfully!")
     except Exception as e:
         st.error(f"❌ Error reading PDF: {e}")
+
 
 # Show extracted + allow edit
 resume_input = st.text_area("📝 Resume Text", value=resume_text, height=200)
