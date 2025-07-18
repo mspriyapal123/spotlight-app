@@ -1,9 +1,5 @@
 import streamlit as st
 import json
-import os
-import PyPDF2
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 
 # Load existing events
 st.set_page_config(page_title="Spotlight - Event Aggregator", layout="wide")
@@ -48,97 +44,5 @@ if filtered:
 else:
     st.info("No events found. Try a different search!")
 
-# ----------------------------
-# 📄 Resume Match Analyzer
-# ----------------------------
-st.markdown("---")
-st.markdown("## 📝 Resume Match Analyzer")
 
-# PDF Upload
-uploaded_file = st.file_uploader("📄 Upload your resume (PDF format)", type=["pdf"])
-resume_text = ""
-
-if uploaded_file is not None:
-    try:
-        pdf_reader = PyPDF2.PdfReader(uploaded_file)
-        for page in pdf_reader.pages:
-            resume_text += page.extract_text() or ""
-        st.success("✅ Resume text extracted successfully!")
-    except Exception as e:
-        st.error(f"❌ Error reading PDF: {e}")
-
-
-# Show extracted + allow edit
-resume_input = st.text_area("📝 Resume Text", value=resume_text, height=200)
-jd_text = st.text_area("📄 Job Description", height=200)
-
-# Matching logic
-if st.button("🔍 Analyze Match"):
-    if resume_input.strip()=="" or jd_text.strip()=="":
-        st.warning("⚠️ Please provide both resume and job description text.")
-    else:
-        vectorizer = TfidfVectorizer()
-        vectors = vectorizer.fit_transform([resume_input, jd_text])
-        sim = cosine_similarity(vectors[0:1], vectors[1:2])[0][0]
-        score = round(sim*100, 2)
-        st.markdown(f"### ✅ Match Score: **{score}%**")
-        
-        if score > 70:
-            st.success("🎯 Great match! Your resume aligns well.")
-        elif score > 40:
-            st.info("👍 Decent match, can be improved.")
-        else:
-            st.warning("⚠️ Low match. Consider updating your resume.")
-
-        # Keywords info
-        resume_words = set(resume_input.lower().split())
-        jd_words = set(jd_text.lower().split())
-        common = resume_words.intersection(jd_words)
-        missing = jd_words - resume_words
-
-        st.markdown("### ✅ Common Keywords Found")
-        st.write(", ".join(common) or "None")
-
-        st.markdown("### ❌ Missing Keywords")
-        st.write(", ".join(missing) or "None")
-
-        if missing:
-            st.markdown("### 💡 Suggestions")
-            st.info("Try including these: " + ", ".join(list(missing)[:5]))
-
-# ----------------------------
-# 📄 Resume Match Analyzer
-# ----------------------------
-st.header("📄 Resume Match Analyzer")
-
-uploaded_resume = st.file_uploader("📤 Upload your Resume (PDF)", type=["pdf"])
-jd_text = st.text_area("📋 Paste the Job Description here")
-
-def extract_text_from_pdf(pdf_file):
-    reader = PyPDF2.PdfReader(pdf_file)
-    text = ""
-    for page in reader.pages:
-        text += page.extract_text()
-    return text
-
-if st.button("🔍 Analyze Match"):
-    if uploaded_resume and jd_text:
-        resume_text = extract_text_from_pdf(uploaded_resume)
-
-        # Matching Logic
-        resume_words = set(resume_text.lower().split())
-        jd_words = set(jd_text.lower().split())
-
-        common = resume_words.intersection(jd_words)
-        missing = jd_words - resume_words
-        match_percent = round(len(common) / len(jd_words) * 100, 2)
-
-        st.success(f"✅ Match Score: {match_percent}%")
-        st.markdown("### ✅ Common Keywords Found:")
-        st.write(", ".join(common))
-
-        st.markdown("### ❌ Missing Important Keywords:")
-        st.write(", ".join(missing))
-    else:
-        st.warning("Please upload a resume and paste a job description.")
 
