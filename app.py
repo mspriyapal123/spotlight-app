@@ -13,7 +13,7 @@ else:
     events = []
 
 # Sidebar form to add new event
-st.sidebar.header("➕ Add New Event")
+st.sidebar.header(" Add New Event")
 with st.sidebar.form("event_form"):
     title = st.text_input("Event Title")
     etype = st.selectbox("Event Type", ["Internship","Hackathon","Workshop","Seminar","Conference","Contest","Other"])
