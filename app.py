@@ -2,9 +2,9 @@ import streamlit as st
 import os
 import json
 
-# Load existing events
+# Load existing events more robustly 1 
 st.set_page_config(page_title="Spotlight - Event Aggregator", layout="wide")
-st.title("🎯 Spotlight - Event Aggregator for Students")
+st.title(" Spotlight - Event Aggregator for Students")
 
 if os.path.exists("events.json"):
     with open("events.json", "r") as f:
