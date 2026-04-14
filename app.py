@@ -25,7 +25,7 @@ with st.sidebar.form("event_form"):
             events.append(new_event)
             with open("events.json","w") as f:
                 json.dump(events, f, indent=2)
-            st.success("✅ Event added successfully!")
+            st.success(" Event added successfully!")
             st.experimental_rerun()
         else:
             st.warning("⚠️ Please fill all fields.")
