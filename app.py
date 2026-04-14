@@ -28,7 +28,7 @@ with st.sidebar.form("event_form"):
             st.success(" Event added successfully!")
             st.experimental_rerun()
         else:
-            st.warning("⚠️ Please fill all fields.")
+            st.warning(" Please fill all fields.")
 
 # Display events
 st.subheader("📅 All Student Events")
