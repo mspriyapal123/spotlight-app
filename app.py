@@ -40,7 +40,7 @@ if filtered:
         st.markdown(f"### {event.get('title','Untitled')}")
         st.markdown(f"**Type:** {event.get('type','N/A')}")
         st.markdown(f"**Deadline:** {event.get('deadline','N/A')}")
-        st.markdown(f"[🔗 Apply Now]({event.get('link','#')})")
+        st.markdown(f"[ Apply Now]({event.get('link','#')})")
         st.markdown("---")
 else:
     st.info("No events found. Try a different search!")
